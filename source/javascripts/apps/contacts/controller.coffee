@@ -1,9 +1,6 @@
 ContactManager.module 'ContactsApp.Controller', (Controller, ContactManager, Backbone, Marionette, $, _) ->
   Controller.index = ->
-    loading()
-
-    fetchingContacts = ContactManager.request('contacts:all')
-    $.when(fetchingContacts).done (contacts) ->
+    loadContacts (contacts) ->
       contactsView = new ContactManager.ContactsApp.Views.Index
         collection: contacts
 
@@ -13,27 +10,32 @@ ContactManager.module 'ContactsApp.Controller', (Controller, ContactManager, Bac
       ContactManager.mainRegion.show(contactsView)
 
   Controller.show = (id) ->
-    loading()
-
-    fetchingContact = ContactManager.request('contact:get', id)
-    $.when(fetchingContact).done (contact) ->
-      if contact?
-        contactView = new ContactManager.ContactsApp.Views.Show(model: contact)
-      else
-        contactView = new ContactManager.ContactsApp.Views.Missing()
-      ContactManager.mainRegion.show(contactView)
+    loadContact id, (contact) ->
+      view = new ContactManager.ContactsApp.Views.Show(model: contact)
+      ContactManager.mainRegion.show(view)
 
   Controller.edit = (id) ->
-    loading()
-
-    fetchingContact = ContactManager.request('contact:get', id)
-    $.when(fetchingContact).done (contact) ->
-      if contact?
-        view = new ContactManager.ContactsApp.Views.Edit(model: contact)
-      else
-        view = new ContactManager.ContactsApp.Views.Missing()
+    loadContact id, (contact) ->
+      view = new ContactManager.ContactsApp.Views.Edit(model: contact)
       ContactManager.mainRegion.show(view)
 
   loading = ->
     loadingView = new ContactManager.Common.Views.Loading()
     ContactManager.mainRegion.show(loadingView)
+
+  loadContacts = (callback) ->
+    loading()
+
+    fetchingContacts = ContactManager.request('contacts:all')
+    $.when(fetchingContacts).done(callback)
+
+  loadContact = (id, callback) ->
+    loading()
+
+    fetchingContact = ContactManager.request('contact:get', id)
+    $.when(fetchingContact).done (contact) ->
+      if contact?
+        callback(contact)
+      else
+        view = new ContactManager.ContactsApp.Views.Missing()
+        ContactManager.mainRegion.show(view)
