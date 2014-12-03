@@ -13,10 +13,8 @@
 //= require collections/contacts.js
 //= require common/views.js
 
-//= require apps/contacts_app.js
+//= require apps/contacts/router.js
+//= require apps/contacts/controller.js
 //= require apps/contacts/list/list_view.js
-//= require apps/contacts/list/list_controller.js
 //= require apps/contacts/show/show_view.js
-//= require apps/contacts/show/show_controller.js
 //= require apps/contacts/edit/edit_view.js
-//= require apps/contacts/edit/edit_controller.js
