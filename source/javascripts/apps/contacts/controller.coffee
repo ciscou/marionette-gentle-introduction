@@ -17,6 +17,13 @@ ContactManager.module 'ContactsApp.Controller', (Controller, ContactManager, Bac
   Controller.edit = (id) ->
     loadContact id, (contact) ->
       view = new ContactManager.ContactsApp.Views.Edit(model: contact)
+
+      view.on 'form:submit', (data) ->
+        if contact.save(data)
+          Backbone.history.navigate "contacts/#{contact.get('id')}", trigger: true
+        else
+          view.triggerMethod('form:data:invalid', contact.validationError)
+
       ContactManager.mainRegion.show(view)
 
   loading = ->

@@ -2,6 +2,7 @@
 //= require vendor/json2.js
 //= require vendor/underscore.js
 //= require vendor/backbone.js
+//= require vendor/backbone.syphon.js
 //= require vendor/backbone.localStorage.js
 //= require vendor/backbone.marionette.js
 //= require vendor/spin.js
