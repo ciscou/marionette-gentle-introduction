@@ -35,8 +35,27 @@
     %a.btn.btn-default{href: '#contacts'}
       %span.glyphicon.glyphicon-chevron-left
       Back
+    %a.btn.btn-default{href: '#contacts/{{id}}/edit'}
+      %span.glyphicon.glyphicon-pencil
+      Edit this contact
 
 %script#loading-view{type: 'text/x-handlebars-template'}
   %h1 Artificial Loading Delay
   %p Data loading is delayed to demonstrate using a loading view
   #spinner
+
+%script#contact-form{type: 'text/x-handlebars-template'}
+  %h1 Edit {{firstName}} {{lastName}}
+  %form
+    .form-group
+      %label{for: 'contact-firstName'} First name:
+      %input#contact-firstName.form-control{type: 'text', value: '{{firstName}}'}
+    .form-group
+      %label{for: 'contact-lastName'} Last name:
+      %input#contact-lastName.form-control{type: 'text', value: '{{lastName}}'}
+    .form-group
+      %label{for: 'contact-phoneNumber'} Phone number:
+      %input#contact-phoneNumber.form-control{type: 'text', value: '{{phoneNumber}}'}
+    %button.btn.btn-primary.js-submit
+      %span.glyphicon.glyphicon-ok
+      Save

@@ -18,3 +18,5 @@
 //= require apps/contacts/list/list_controller.js
 //= require apps/contacts/show/show_view.js
 //= require apps/contacts/show/show_controller.js
+//= require apps/contacts/edit/edit_view.js
+//= require apps/contacts/edit/edit_controller.js
