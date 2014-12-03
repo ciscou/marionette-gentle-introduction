@@ -1,0 +1,19 @@
+!!!
+%html{lang: 'en'}
+  %head
+    %meta{charset: 'utf-8'}
+    %title Marionette Contact Manager
+    = stylesheet_link_tag 'all'
+
+  %body
+    %nav.navbar.navbar-inverse.navbar-fixed-top
+      .container
+        .navbar-header
+          = link_to "Contact manager", '#contacts', class: 'navbar-brand'
+
+    = yield
+
+    = javascript_include_tag 'all'
+
+    :javascript
+      ContactManager.start();

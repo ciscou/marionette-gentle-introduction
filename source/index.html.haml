@@ -1,0 +1,42 @@
+#main-region.container
+  %p
+    Here is static content in the web page. You'll notice that it gets
+    replaced by our app as soon as we start it
+
+%script#contact-list{type: 'text/x-handlebars-template'}
+  %thead
+    %tr
+      %th First name
+      %th Last name
+      %th
+  %tbody
+
+%script#contact-list-item{type: 'text/x-handlebars-template'}
+  %td {{firstName}}
+  %td {{lastName}}
+  %td
+    %a.btn.btn-xs.btn-primary{href: '#contacts/{{id}}'}
+      %span.glyphicon.glyphicon-eye-open
+      Show
+    %button.btn.btn-xs.btn-danger.js-delete
+      %span.glyphicon.glyphicon-remove
+      Delete
+
+%script#missing-contact-view{type: 'text/x-handlebars-template'}
+  .alert.alert-danger
+    This contact doesn't exist!
+
+%script#contact-view{type: 'text/x-handlebars-template'}
+  %h1 {{firstName}} {{lastName}}
+  %p
+    %strong Phone number
+    {{phoneNumber}}
+  %p
+    %a.btn.btn-default{href: '#contacts'}
+      %span.glyphicon.glyphicon-chevron-left
+      Back
+
+%script#loading-view{type: 'text/x-handlebars-template'}
+  %h1 Artificial Loading Delay
+  %p Data loading is delayed to demonstrate using a loading view
+  #spinner
