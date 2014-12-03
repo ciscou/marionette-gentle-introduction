@@ -1,5 +1,5 @@
-ContactManager.module 'ContactsApp.Edit', (Edit, ContactManager, Backbone, Marionette, $, _) ->
-  Edit.Contact = Marionette.ItemView.extend
+ContactManager.module 'ContactsApp.Views', (Views, ContactManager, Backbone, Marionette, $, _) ->
+  Views.Edit = Marionette.ItemView.extend
     template: '#contact-form'
 
     events:

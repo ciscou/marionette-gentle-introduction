@@ -56,6 +56,9 @@
     .form-group
       %label{for: 'contact-phoneNumber'} Phone number:
       %input#contact-phoneNumber.form-control{type: 'text', value: '{{phoneNumber}}'}
+    %a.btn.btn-default{href: '#contacts/{{id}}'}
+      %span.glyphicon.glyphicon-chevron-left
+      Back
     %button.btn.btn-primary.js-submit
       %span.glyphicon.glyphicon-ok
       Save

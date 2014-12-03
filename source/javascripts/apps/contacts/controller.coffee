@@ -4,7 +4,7 @@ ContactManager.module 'ContactsApp.Controller', (Controller, ContactManager, Bac
 
     fetchingContacts = ContactManager.request('contacts:all')
     $.when(fetchingContacts).done (contacts) ->
-      contactsView = new ContactManager.ContactsApp.List.Contacts
+      contactsView = new ContactManager.ContactsApp.Views.Index
         collection: contacts
 
       contactsView.on 'childview:contact:delete', (childView, contact) ->
@@ -18,9 +18,9 @@ ContactManager.module 'ContactsApp.Controller', (Controller, ContactManager, Bac
     fetchingContact = ContactManager.request('contact:get', id)
     $.when(fetchingContact).done (contact) ->
       if contact?
-        contactView = new ContactManager.ContactsApp.Show.Contact(model: contact)
+        contactView = new ContactManager.ContactsApp.Views.Show(model: contact)
       else
-        contactView = new ContactManager.ContactsApp.Show.MissingContact()
+        contactView = new ContactManager.ContactsApp.Views.Missing()
       ContactManager.mainRegion.show(contactView)
 
   Controller.edit = (id) ->
@@ -29,9 +29,9 @@ ContactManager.module 'ContactsApp.Controller', (Controller, ContactManager, Bac
     fetchingContact = ContactManager.request('contact:get', id)
     $.when(fetchingContact).done (contact) ->
       if contact?
-        view = new ContactManager.ContactsApp.Edit.Contact(model: contact)
+        view = new ContactManager.ContactsApp.Views.Edit(model: contact)
       else
-        view = new ContactManager.ContactsApp.Show.MissingContact()
+        view = new ContactManager.ContactsApp.Views.Missing()
       ContactManager.mainRegion.show(view)
 
   loading = ->

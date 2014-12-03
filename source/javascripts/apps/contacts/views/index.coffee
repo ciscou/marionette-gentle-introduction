@@ -1,5 +1,5 @@
-ContactManager.module 'ContactsApp.List', (List, ContactManager, Backbone, Marionette, $, _) ->
-  List.Contact = Marionette.ItemView.extend
+ContactManager.module 'ContactsApp.Views', (Views, ContactManager, Backbone, Marionette, $, _) ->
+  Views.ContactRow = Marionette.ItemView.extend
     tagName: 'tr'
     template: '#contact-list-item'
     events:
@@ -13,9 +13,9 @@ ContactManager.module 'ContactsApp.List', (List, ContactManager, Backbone, Mario
     remove: ->
       @$el.fadeOut => Marionette.ItemView.prototype.remove.call(this)
 
-  List.Contacts = Marionette.CompositeView.extend
+  Views.Index = Marionette.CompositeView.extend
     tagName: 'table'
     className: 'table table-hover'
     template: '#contact-list'
-    childView: List.Contact
+    childView: Views.ContactRow
     childViewContainer: 'tbody'
