@@ -3,6 +3,11 @@
     Here is static content in the web page. You'll notice that it gets
     replaced by our app as soon as we start it
 
+.modal
+  .modal-dialog
+    .modal-content
+      #dialog-region.modal-body
+
 %script#contact-list{type: 'text/x-handlebars-template'}
   %thead
     %tr
@@ -15,9 +20,12 @@
   %td {{firstName}}
   %td {{lastName}}
   %td
-    %a.btn.btn-xs.btn-primary{href: '#contacts/{{id}}'}
+    %a.btn.btn-xs.btn-primary.js-show{href: '#contacts/{{id}}'}
       %span.glyphicon.glyphicon-eye-open
       Show
+    %a.btn.btn-xs.btn-primary.js-edit{href: '#contacts/{{id}}/edit'}
+      %span.glyphicon.glyphicon-pencil
+      Edit
     %button.btn.btn-xs.btn-danger.js-delete
       %span.glyphicon.glyphicon-remove
       Delete

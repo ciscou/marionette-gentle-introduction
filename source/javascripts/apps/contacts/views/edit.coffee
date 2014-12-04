@@ -5,6 +5,10 @@ ContactManager.module 'ContactsApp.Views', (Views, ContactManager, Backbone, Mar
     events:
       "click button.js-submit": "submitClicked"
 
+    onShow: ->
+      if @options.asModal
+        @$el.closest('.modal').modal()
+
     submitClicked: (e) ->
       e.preventDefault()
       data = Backbone.Syphon.serialize(this)

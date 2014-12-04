@@ -1,4 +1,5 @@
 //= require vendor/jquery-2.1.1.js
+//= require vendor/bootstrap.js
 //= require vendor/json2.js
 //= require vendor/underscore.js
 //= require vendor/backbone.js
