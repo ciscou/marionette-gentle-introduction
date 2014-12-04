@@ -9,6 +9,9 @@ ContactManager.module 'ContactsApp.Views', (Views, ContactManager, Backbone, Mar
       if @options.asModal
         @$el.closest('.modal').modal()
 
+    closeModal: ->
+      @$el.closest('.modal').modal('hide')
+
     submitClicked: (e) ->
       e.preventDefault()
       data = Backbone.Syphon.serialize(this)

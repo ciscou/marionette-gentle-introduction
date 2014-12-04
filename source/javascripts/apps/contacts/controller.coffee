@@ -6,7 +6,9 @@ ContactManager.module 'ContactsApp.Controller', (Controller, ContactManager, Bac
 
       contactsView.on 'childview:contact:edit', (childView, contact) ->
         view = new ContactManager.ContactsApp.Views.Edit(model: contact, asModal: true)
-        setupEditView(view, contact)
+        setupEditView view, contact, ->
+          view.closeModal()
+          childView.render().flash('success')
         ContactManager.dialogRegion.show(view)
 
       contactsView.on 'childview:contact:delete', (childView, contact) ->
@@ -22,7 +24,8 @@ ContactManager.module 'ContactsApp.Controller', (Controller, ContactManager, Bac
   Controller.edit = (id) ->
     loadContact id, (contact) ->
       view = new ContactManager.ContactsApp.Views.Edit(model: contact)
-      setupEditView(view, contact)
+      setupEditView view, contact, ->
+        Backbone.history.navigate "contacts/#{contact.get('id')}", trigger: true
       ContactManager.mainRegion.show(view)
 
   loading = ->
@@ -46,9 +49,9 @@ ContactManager.module 'ContactsApp.Controller', (Controller, ContactManager, Bac
         view = new ContactManager.ContactsApp.Views.Missing()
         ContactManager.mainRegion.show(view)
 
-  setupEditView = (view, contact) ->
+  setupEditView = (view, contact, callback) ->
     view.on 'form:submit', (data) ->
       if contact.save(data)
-        Backbone.history.navigate "contacts/#{contact.get('id')}", trigger: true
+        callback()
       else
         view.triggerMethod('form:data:invalid', contact.validationError)

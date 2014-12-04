@@ -13,6 +13,11 @@ ContactManager.module 'ContactsApp.Views', (Views, ContactManager, Backbone, Mar
     highlight: ->
       @$el.toggleClass('warning')
 
+    flash: (className) ->
+      $el = @$el
+      $el.hide().toggleClass(className).fadeIn 300, ->
+        setTimeout (-> $el.toggleClass(className)), 300
+
     showClicked: (e) ->
       e.stopPropagation()
 
