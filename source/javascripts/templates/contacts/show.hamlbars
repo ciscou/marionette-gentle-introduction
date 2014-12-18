@@ -1,0 +1,11 @@
+%h1 {{firstName}} {{lastName}}
+%p
+  %strong Phone number
+  {{phoneNumber}}
+%p
+  %a.btn.btn-default{href: '#contacts'}
+    %span.glyphicon.glyphicon-chevron-left
+    Back
+  %a.btn.btn-default{href: '#contacts/{{id}}/edit'}
+    %span.glyphicon.glyphicon-pencil
+    Edit this contact

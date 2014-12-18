@@ -2,7 +2,7 @@ ContactManager.module 'ContactsApp.Views', (Views, ContactManager, Backbone, Mar
   Views.ContactRow = Marionette.ItemView.extend
     tagName: 'tr'
 
-    template: HandlebarsTemplates['contacts/list_item']
+    template: HandlebarsTemplates['contacts/row']
 
     events:
       'click': 'highlight'
@@ -38,7 +38,7 @@ ContactManager.module 'ContactsApp.Views', (Views, ContactManager, Backbone, Mar
 
     className: 'table table-hover'
 
-    template: HandlebarsTemplates['contacts/list']
+    template: HandlebarsTemplates['contacts/index']
 
     childView: Views.ContactRow
 

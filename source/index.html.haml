@@ -8,23 +8,6 @@
     .modal-content
       #dialog-region.modal-body
 
-%script#missing-contact-view{type: 'text/x-handlebars-template'}
-  .alert.alert-danger
-    This contact doesn't exist!
-
-%script#contact-view{type: 'text/x-handlebars-template'}
-  %h1 {{firstName}} {{lastName}}
-  %p
-    %strong Phone number
-    {{phoneNumber}}
-  %p
-    %a.btn.btn-default{href: '#contacts'}
-      %span.glyphicon.glyphicon-chevron-left
-      Back
-    %a.btn.btn-default{href: '#contacts/{{id}}/edit'}
-      %span.glyphicon.glyphicon-pencil
-      Edit this contact
-
 %script#loading-view{type: 'text/x-handlebars-template'}
   %h1 Artificial Loading Delay
   %p Data loading is delayed to demonstrate using a loading view
