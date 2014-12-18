@@ -1,6 +1,6 @@
 ContactManager.module 'Common.Views', (Views, ContactManager, Backbone, Marionette, $, _) ->
   Views.Loading = Marionette.ItemView.extend
-    template: '#loading-view'
+    template: HandlebarsTemplates['common/loading']
     onShow: ->
       opts =
         lines: 13

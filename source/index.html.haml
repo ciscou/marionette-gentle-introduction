@@ -7,27 +7,3 @@
   .modal-dialog
     .modal-content
       #dialog-region.modal-body
-
-%script#loading-view{type: 'text/x-handlebars-template'}
-  %h1 Artificial Loading Delay
-  %p Data loading is delayed to demonstrate using a loading view
-  #spinner
-
-%script#contact-form{type: 'text/x-handlebars-template'}
-  %h1 Edit {{firstName}} {{lastName}}
-  %form
-    .form-group
-      %label{for: 'contact-firstName'} First name:
-      %input#contact-firstName.form-control{type: 'text', name: 'firstName', value: '{{firstName}}'}
-    .form-group
-      %label{for: 'contact-lastName'} Last name:
-      %input#contact-lastName.form-control{type: 'text', name: 'lastName', value: '{{lastName}}'}
-    .form-group
-      %label{for: 'contact-phoneNumber'} Phone number:
-      %input#contact-phoneNumber.form-control{type: 'text', name: 'phoneNumber', value: '{{phoneNumber}}'}
-    %a.btn.btn-default{href: '#contacts/{{id}}'}
-      %span.glyphicon.glyphicon-chevron-left
-      Back
-    %button.btn.btn-primary.js-submit
-      %span.glyphicon.glyphicon-ok
-      Save
