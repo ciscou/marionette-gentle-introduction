@@ -1,0 +1,12 @@
+%td {{firstName}}
+%td {{lastName}}
+%td
+  %a.btn.btn-xs.btn-primary.js-show{href: '#contacts/{{id}}'}
+    %span.glyphicon.glyphicon-eye-open
+    Show
+  %a.btn.btn-xs.btn-primary.js-edit{href: '#contacts/{{id}}/edit'}
+    %span.glyphicon.glyphicon-pencil
+    Edit
+  %button.btn.btn-xs.btn-danger.js-delete
+    %span.glyphicon.glyphicon-remove
+    Delete

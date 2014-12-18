@@ -8,28 +8,6 @@
     .modal-content
       #dialog-region.modal-body
 
-%script#contact-list{type: 'text/x-handlebars-template'}
-  %thead
-    %tr
-      %th First name
-      %th Last name
-      %th
-  %tbody
-
-%script#contact-list-item{type: 'text/x-handlebars-template'}
-  %td {{firstName}}
-  %td {{lastName}}
-  %td
-    %a.btn.btn-xs.btn-primary.js-show{href: '#contacts/{{id}}'}
-      %span.glyphicon.glyphicon-eye-open
-      Show
-    %a.btn.btn-xs.btn-primary.js-edit{href: '#contacts/{{id}}/edit'}
-      %span.glyphicon.glyphicon-pencil
-      Edit
-    %button.btn.btn-xs.btn-danger.js-delete
-      %span.glyphicon.glyphicon-remove
-      Delete
-
 %script#missing-contact-view{type: 'text/x-handlebars-template'}
   .alert.alert-danger
     This contact doesn't exist!

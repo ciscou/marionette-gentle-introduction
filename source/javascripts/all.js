@@ -10,6 +10,8 @@
 //= require vendor/jquery.spin.js
 //= require vendor/handlebars-v2.0.0.js
 
+//= require_tree ./templates
+
 //= require app.js
 //= require models/contact.js
 //= require collections/contacts.js
