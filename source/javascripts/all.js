@@ -1,20 +1,20 @@
-//= require vendor/jquery-2.1.1.js
-//= require vendor/bootstrap.js
-//= require vendor/json2.js
-//= require vendor/underscore.js
-//= require vendor/backbone.js
-//= require vendor/backbone.syphon.js
-//= require vendor/backbone.localStorage.js
-//= require vendor/backbone.marionette.js
-//= require vendor/spin.js
-//= require vendor/jquery.spin.js
-//= require vendor/handlebars-v2.0.0.js
+//= require vendor/jquery-2.1.1
+//= require bootstrap
+//= require vendor/json2
+//= require vendor/underscore
+//= require vendor/backbone
+//= require vendor/backbone.syphon
+//= require vendor/backbone.localStorage
+//= require vendor/backbone.marionette
+//= require vendor/spin
+//= require vendor/jquery.spin
+//= require handlebars
 
 //= require_tree ./templates
 
-//= require app.js
-//= require models/contact.js
-//= require collections/contacts.js
-//= require common/views.js
+//= require app
+//= require models/contact
+//= require collections/contacts
+//= require common/views
 
 //= require_tree ./apps
