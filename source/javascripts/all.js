@@ -8,7 +8,7 @@
 //= require vendor/_backbone.marionette
 //= require vendor/_spin
 //= require vendor/_jquery.spin
-//= require handlebars
+//= require handlebars.runtime
 
 //= require_tree ./templates
 

@@ -1,6 +1,3 @@
-Backbone.Marionette.TemplateCache.prototype.compileTemplate = (rawTemplate) ->
-  Handlebars.compile(rawTemplate)
-
 ContactManager = new Marionette.Application()
 
 ContactManager.addRegions
