@@ -11,6 +11,9 @@ ContactManager.module 'ContactsApp.Controller', (Controller, ContactManager, Bac
           childView.render().flash('success')
         ContactManager.dialogRegion.show(view)
 
+      contactsView.on 'childview:contact:show', (childView, contact) ->
+        ContactManager.trigger('contacts:show', contact.get('id'))
+
       contactsView.on 'childview:contact:delete', (childView, contact) ->
         contact.destroy()
 
@@ -25,7 +28,7 @@ ContactManager.module 'ContactsApp.Controller', (Controller, ContactManager, Bac
     loadContact id, (contact) ->
       view = new ContactManager.ContactsApp.Views.Edit(model: contact)
       setupEditView view, contact, ->
-        Backbone.history.navigate "contacts/#{contact.get('id')}", trigger: true
+        ContactManager.trigger 'contacts:show', contact.get('id')
       ContactManager.mainRegion.show(view)
 
   loading = ->

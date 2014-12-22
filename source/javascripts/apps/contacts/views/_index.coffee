@@ -19,7 +19,9 @@ ContactManager.module 'ContactsApp.Views', (Views, ContactManager, Backbone, Mar
         setTimeout (-> $el.toggleClass(className)), 300
 
     showClicked: (e) ->
+      e.preventDefault()
       e.stopPropagation()
+      @trigger 'contact:show', @model
 
     editClicked: (e) ->
       e.preventDefault()
