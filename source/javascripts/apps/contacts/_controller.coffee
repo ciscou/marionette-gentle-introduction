@@ -4,18 +4,18 @@ ContactManager.module 'ContactsApp.Controller', (Controller, ContactManager, Bac
       contactsView = new ContactManager.ContactsApp.Views.Index
         collection: contacts
 
-      contactsView.on 'childview:contact:edit', (childView, contact) ->
-        view = new ContactManager.ContactsApp.Views.Edit(model: contact, asModal: true)
-        setupEditView view, contact, ->
+      contactsView.on 'childview:contact:edit', (childView, args) ->
+        view = new ContactManager.ContactsApp.Views.Edit(model: args.model, asModal: true)
+        setupEditView view, args.model, ->
           view.closeModal()
           childView.render().flash('success')
         ContactManager.dialogRegion.show(view)
 
-      contactsView.on 'childview:contact:show', (childView, contact) ->
-        ContactManager.trigger('contacts:show', contact.get('id'))
+      contactsView.on 'childview:contact:show', (childView, args) ->
+        ContactManager.trigger('contacts:show', args.model.get('id'))
 
-      contactsView.on 'childview:contact:delete', (childView, contact) ->
-        contact.destroy()
+      contactsView.on 'childview:contact:delete', (childView, args) ->
+        args.model.destroy()
 
       ContactManager.mainRegion.show(contactsView)
 

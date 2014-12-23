@@ -6,9 +6,11 @@ ContactManager.module 'ContactsApp.Views', (Views, ContactManager, Backbone, Mar
 
     events:
       'click': 'highlight'
-      'click a.js-show': 'showClicked'
-      'click a.js-edit': 'editClicked'
-      'click button.js-delete': 'deleteClicked'
+
+    triggers:
+      'click a.js-show': 'contact:show'
+      'click a.js-edit': 'contact:edit'
+      'click button.js-delete': 'contact:delete'
 
     highlight: ->
       @$el.toggleClass('warning')
