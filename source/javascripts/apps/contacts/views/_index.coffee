@@ -20,20 +20,6 @@ ContactManager.module 'ContactsApp.Views', (Views, ContactManager, Backbone, Mar
       $el.hide().toggleClass(className).fadeIn 300, ->
         setTimeout (-> $el.toggleClass(className)), 300
 
-    showClicked: (e) ->
-      e.preventDefault()
-      e.stopPropagation()
-      @trigger 'contact:show', @model
-
-    editClicked: (e) ->
-      e.preventDefault()
-      e.stopPropagation()
-      @trigger 'contact:edit', @model
-
-    deleteClicked: (e) ->
-      e.stopPropagation()
-      @trigger 'contact:delete', @model
-
     remove: ->
       @$el.fadeOut => Marionette.ItemView.prototype.remove.call(this)
 
